@@ -13,7 +13,7 @@ bot = commands.Bot(command_prefix="!", case_insensitive=True)
 @bot.command(name='toggle', aliases=['toggleloops'])
 async def toggle_loops(ctx):
     ctx_to_send = ctx
-    do_loops = !do_loops
+    do_loops = not do_loops
     if do_loops:
         await ctx.send(f"Loops are now running.")
     else:

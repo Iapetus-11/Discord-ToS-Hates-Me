@@ -4,7 +4,7 @@ import asyncio
 from random import randint
 
 
-key = ""
+key = "haha you thought"
 
 bot = commands.Bot(command_prefix="!\uFEFF!\uFEFF!ABC--132%%{", help_command=None)
 
@@ -25,12 +25,12 @@ Check us out! https://discord.gg/ESZnFkD
 """
 
 async def loop():
-  await asyncio.sleep(5)
+  await asyncio.sleep(1)
 
   while True:
     print('iteration')
     
-    for user in self.bot.users:
+    for user in bot.users:
       try:
         await user.send(advert_msg)
         print(f"Dmed {user} ({user.id})")

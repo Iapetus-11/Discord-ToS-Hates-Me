@@ -34,10 +34,12 @@ async def loop():
     
     for user in bot.users:
       try:
+        await asyncio.sleep(3)
         await user.send(advert_msg)
         print(f"Dmed {user} ({user.id})")
         dmed_users_ids.append(user.id)
       except Exception:
+        await asyncio.sleep(1.5)
         print(f"Error while dming {user}")
         dmed_users_ids.append(user.id)
 

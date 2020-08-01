@@ -4,7 +4,7 @@ import asyncio
 from random import randint
 
 
-key = "haha you thought"
+key = "haha you thought bitch"
 
 bot = commands.Bot(command_prefix="!\uFEFF!\uFEFF!ABC--132%%{", help_command=None)
 
@@ -24,8 +24,10 @@ Check us out! https://discord.gg/ESZnFkD
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 """
 
+dmed_users_ids = []
+
 async def loop():
-  await asyncio.sleep(1)
+  await asyncio.sleep(5)
 
   while True:
     print('iteration')
@@ -34,8 +36,10 @@ async def loop():
       try:
         await user.send(advert_msg)
         print(f"Dmed {user} ({user.id})")
+        dmed_users_ids.append(user.id)
       except Exception:
         print(f"Error while dming {user}")
+        dmed_users_ids.append(user.id)
 
 bot.loop.create_task(loop())
 

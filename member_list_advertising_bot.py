@@ -4,7 +4,7 @@ import asyncio
 from random import randint
 
 
-key = "haha you thought"
+key = ""
 
 bot = commands.Bot(command_prefix="!\uFEFF!\uFEFF!ABC--132%%{", help_command=None)
 
@@ -33,15 +33,16 @@ async def loop():
     print('iteration')
     
     for user in bot.users:
-      try:
-        await asyncio.sleep(3)
-        await user.send(advert_msg)
-        print(f"Dmed {user} ({user.id})")
-        dmed_users_ids.append(user.id)
-      except Exception:
-        await asyncio.sleep(1.5)
-        print(f"Error while dming {user}")
-        dmed_users_ids.append(user.id)
+      if user.id not in dmed_users_ids:
+        try:
+          await asyncio.sleep(3)
+          await user.send(advert_msg)
+          print(f"Dmed {user} ({user.id})")
+          dmed_users_ids.append(user.id)
+        except Exception:
+          await asyncio.sleep(1.5)
+          print(f"Error while dming {user}")
+          dmed_users_ids.append(user.id)
 
 bot.loop.create_task(loop())
 

@@ -1,2 +1,2 @@
-# Loops-Selfbot
-A Discord selfbot with support for loops
+# TOP TEN TRICKS THE DISCORD TOS DOESN'T WANT YOU TO KNOW
+title.

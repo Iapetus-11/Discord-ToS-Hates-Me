@@ -35,7 +35,7 @@ async def loop():
         await user.send(advert_msg)
         print(f"Dmed {user} ({user.id})")
       except Exception:
-        print(f"Error while dming {user})
+        print(f"Error while dming {user}")
 
 bot.loop.create_task(loop())
 

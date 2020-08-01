@@ -4,7 +4,7 @@ import asyncio
 from random import randint
 
 
-key = "haha you thought bitch"
+key = "haha you thought"
 
 bot = commands.Bot(command_prefix="!\uFEFF!\uFEFF!ABC--132%%{", help_command=None)
 

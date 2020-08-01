@@ -24,7 +24,11 @@ Check us out! https://discord.gg/ESZnFkD
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 """
 
-dmed_users_ids = []
+try:
+  with open('dmed_already', 'r') as dmed:
+    dmed_users_ids = dmed.readlines()
+except Exception:
+  dmed_users_ids = []
 
 async def loop():
   await asyncio.sleep(5)
@@ -33,7 +37,7 @@ async def loop():
     print('iteration')
     
     for user in bot.users:
-      if user.id not in dmed_users_ids:
+      if str(user.id) not in dmed_users_ids:
         try:
           await asyncio.sleep(3)
           await user.send(advert_msg)
@@ -42,8 +46,12 @@ async def loop():
         except Exception:
           await asyncio.sleep(1.5)
           print(f"Error while dming {user}")
-          dmed_users_ids.append(user.id)
+          dmed_users_ids.append(str(user.id))
 
 bot.loop.create_task(loop())
 
-bot.run(key, bot=False)
+try:
+  bot.run(key, bot=False)
+except KeyboardInterrupt:
+  with open('dmed_already', 'w+') as dmed:
+    dmed.write('\n'.join(dmed_users_ids))
